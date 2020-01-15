@@ -1,0 +1,118 @@
+# passwd # change password
+# mkdir directory_name # create directory
+# cd directory_name # change directory
+# cd .. # change to parent directory
+# cat > file_name # create file
+# ls # list files
+# cp file1 file2 # copy file
+# mv # move/rename the file
+# . # current directory
+# .. # parent directory
+# ls -l # long list -> file detail in directory
+# rm # remove -> file
+# rmdir # remove directory
+# cd # go to home directory
+# -------
+# Current Directory: ~
+$ passwd
+$ mkdir lab
+$ cd lab
+$ mkdir lab1
+$ cd lab1
+$ cat > file1
+asd[kapodfjks;gjldf
+asdfk;smf;ml;sdfk
+$ ^D
+$ ls
+$ cat > friends
+jlkdfjg;
+sdlk;fdjk
+adkf;sjz;lf
+$ ^D
+$ ls
+$ cp friends CSfriends
+$ ls
+$ mkdir lab11
+$ ls
+$ cd lab11
+$ ls
+$ cd .. # back 1 level
+$ cd ..
+$ cd ..
+$ cd lab
+$ cd lab1
+$ cd lab11
+$ cp ../friends CSfriends2
+$ ls
+$ mkdir lab111
+$ cd lab111
+$ cp ../../file1 file2
+$ ls
+$ mkdir ../lab112
+$ cd ..
+$ ls
+$ ls lab111
+$ cp lab111/file2 lab112/file3
+$ cd lab112
+$ ls
+$ cp ../../file1 ../file4
+$ ls ..
+$ cd ../../../
+$ cd lab 1
+$ ls
+$ mv file1 filex
+$ ls
+# ls -l
+$ rm filex
+$ ls -l
+$ mkdir lab12
+$ mkdir lab13
+$ mkdir lab13/lab131
+$ mkdir lab13/lab132
+$ ls -l
+$ mv lab13 lab113
+$ ls -l
+$ mv lab12 ../lab12
+$ rmdir lab113
+$ cd lab113
+$ rmdir lab131
+$ rmdir lab132
+$ ls
+$ cd
+
+# Homework: Make 'homework' directory in home
+$ mkdir homework
+$ cd homework/
+$ mkdir java
+$ mkdir network
+$ mkdir java/java1
+$ mkdir java/webpro
+$ mkdir network/physical
+$ mkdir network/datalink
+$ mkdir network/transport
+$ mkdir network/application
+$ cd network/datalink/
+$ cat > topic
+FRAME
+ERROR CONTROL
+- PARITY BIT
+- CRC
+MAC
+$ cat > mac_addresses
+00-0a-25-9d-68-16
+12-0a-95-9d-68-32
+00-0a-32-9d-68-16
+12-3a-25-2d-68-16
+$ mv topic topics
+$ ls
+$ cd ../../os
+$ cat > topics
+PROCESSES
+DEADLOCK
+SCHEDULING
+FILEMNG
+$ cat > app
+NOTEPAD
+TERMINAL
+CALCULATOR
+CALENDAR
