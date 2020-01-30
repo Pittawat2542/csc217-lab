@@ -1,0 +1,58 @@
+  $ cd lab
+  $ ls
+  $ mkdir lab3
+  $ cd lab3
+  $ ls ../lab
+  $ ls ../lab2
+  $ cp ../lab2/GDPR ./myGDPR
+  $ ls
+  $ cp ../../homework/homework2/nplums.out .
+  $ ls
+  $ cp myGDPR myGDPR2
+  $ ls
+  $ ls -l # list with long list in detail
+  # Group of user has 3 groups
+  #  owner group other
+  # -[rw-][r--][r--]
+  # set permission for yourself (owner) of myGDPR so that you have all permission
+  # permission has read write execute (rwx)
+  # chmod = change mode for set permission
+  $ chmod 700 myGDPR # set every permissions for owner
+  # 7 = all permissions
+  # 7 = 111 (rwx)
+  # 4 = 100 (r--)
+  # 6 = 110 (rw-)
+  # 2 = 010 (-w-)
+  $ chmod 400 myGDPR # 100 000 000
+  $ vi myGDPR
+  $ chmod 640 myGDPR # 110 100 000
+  $ chmod 240 myGDPR # 010 100 000
+  # more = read content of the file
+  $ chmod 100 nplums.out
+  $ ./nplums.out
+  $ mkdir lab32
+  $ mkdir lab33
+  # drwxr-xr-x => d is directory
+  # copy require write permission on directory and read permission on file
+  $ chmod 400 lab32
+  $ cp myGDPR2 lab33
+  $ chmod 400 lab33
+  $ chmod 222 lab33
+  # ls (list files) require read permission for directory
+  # cd (go insides) require execute permission for directory
+  $ chmod 100 lab33
+  # ls -a = all files
+  # cd (with nothing) = go to home 
+  # hidden files start with .
+  $ chmod u+x lab32
+  # u = user, g = group, o = other
+  $ chmod g+r lab32
+  $ whoami # account
+  $ who # who logged in the system
+  # chown = change ownership
+  $ chown os61226 myGDPR
+  $ pwd # print working directory
+  $ date # ask the date of linux
+  $ cal # calendar
+  $ cal 2020 # calendar of whole year
+  $ cal 09 1999 # calendar on specific month and year

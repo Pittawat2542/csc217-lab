@@ -1,0 +1,53 @@
+$ cd lab
+$ mkdir lab2
+$ cd lab2
+$ cat > myfile
+Somethings
+Somethings where
+Sometimes
+^C
+$ vi algorithm
+# vi -> insert mode and command mode
+[Command Mode] i = insert
+[Command Mode] a = append
+[Insert Mode] ESC = back to command mode from insert mode
+[Command Mode] :w = write/save
+[Command Mode] :w filename = write to another file
+[Command Mode] $ = to the end of line
+[Command Mode] H, J, K, L = Left/Down/Up/Right
+[Command Mode] ZZ = Save and exit
+$ ls
+[Command Mode] x = delete 1 character
+[Command Mode] 3x = delete 3 characters
+[Command Mode] u = undo
+[Command Mode] . = repeat a previous change
+[Command Mode] Ctrl + r = redo
+[Command Mode] dd = delete the whole line
+[Command Mode] 3dd = delete 3 lines
+[Command Mode] :f = show file name
+[Command Mode] :f filename = change file name
+[Command Mode] :7, 7 t 12 = copy line 7 to 7 to the line 12
+[Command Mode] :1, 3 t 15 = copy line 1 to 3 to the line 15
+[Command Mode] :9, 9 m 0 = move line 9 to 9 to the line 0
+[Command Mode] :., .+2 m 17 = current line to current line + 2 move to line 17
+[Command Mode] :.-2, .+3 m 0 = 2 line before current line to current line + 3 move to line 0
+[Command Mode] :., . m $ = move current line to the last line
+# m = cut & paste
+[Command Mode] :/GDPR = search for word "GDPR"
+[Command Mode] n = next
+[Command Mode] N = previous
+[Command Mode] :1, 10 s/Michal/Meee = Between line 1 to line 10, subsitue pattern "Michal" to "Meee" 
+[Command Mode] :1, $ s/Michal/Meee = Between line 1 to last line, subsitue pattern "Michal" to "Meee" (only first found of each line)
+[Command Mode] :1, $ s/Michal/Meee/g = Between line 1 to last line, subsitue pattern "Michal" to "Meee" (all occurence)
+[Command Mode] :1, . d = delete from first to current line
+[Command Mode] :$-2, $ w! filename = copy last 2 lines to other file (Add ! to override)
+[Command Mode] 5i [Insert Mode] Text [Command Mode] (ESC) = Text Text Text Text Text
+[Command Mode] !q = quit without save
+[Command Mode] J = pull line up
+
+Homework: Write name Pluem n times accroding to the user number. Write this in C language.
+
+$ more = see file
+$ gcc filename.c -o outputfile.out = C compiler
+$ ./file.out = run C compiled file
+$ ls *pattern.* = list every things 
