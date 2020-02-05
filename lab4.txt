@@ -1,0 +1,83 @@
+$ mkdir lab/lab4
+$ cal 08 09 1999 # month of birth date
+$ cal 08 09 1999 >> mybirthdate
+$ date
+# > = redirect output to a file
+$ cal > todayCalendar
+$ ls -l > currentDirectory
+$ cp ../../homework/homework2/nplums.out .
+$ ./nplums.out
+$ ./nplums.out > plumOutput
+# < = redirect input
+$ cat > input
+10
+^C
+$ ./nplums.out < input
+$ ./nplums.out < input > plumOutput
+$ vi sum.c
+
+#include<stdio.h>
+
+int main() {
+  int a, b;
+  printf("Please enter your intput x y: ");
+  scanf("%d %d", &a, &b);
+  printf("%d + %d = %d\n", a, b, a + b);
+  return 1;
+}
+
+$ gcc sum.c -o sum.out
+$ ./sum.c
+$ vi sumAll.c
+
+#include<stdio.h>
+
+int main() {
+  int sum = 0;
+  int n;
+  do {
+    printf("Please enter your input (-1 to stop the program): ");
+    scanf("%d", &n);
+    if (n != -1) {
+      sum += n;
+    }
+  } while (n != -1);
+  printf("Sum of all numbers is %d\n", sum);
+  return 1;
+}
+
+$ gcc sumAll.c -o sumAll.out
+$ ./sumAll.out
+$ cat > inputSumAll
+12 45 576 34 46 452 23 6 85 34 -1
+^C
+$ ./sumAll.out < inputSumAll
+$ ./sumAll.out < inputSumAll > outputSumAll
+# >> = redirect output for appending
+# cat = concatenate program to concatenate contents of two files together
+$ cat inputSumAll inputSumAll2
+12 45 576 34 46 452 23 6 85 34 -1
+1 2 3 4 5 6 7 8 9 10 -1
+$ cat inputSumAll inputSumAll2 > inputSumAll3
+# cmp = compare
+$ cmp inputSumAll3 inputAlot
+# diff = different
+$ diff inputSumAll3 inputAlot
+2a3,5
+> 12 45 576 34 46 452 23 6 85 34 -1
+> 1 2 3 4 5 6 7 8 9 10 -1
+> 12 45 576 34 46 452 23 6 85 34 -1
+# different from line 2 to 3
+$ diff inputSumAll3 inputSumAll2
+1d0
+< 12 45 576 34 46 452 23 6 85 34 -1
+# ps = list of process (only my own) included background process
+# ps -l = long list process
+# ps -a = list all process
+# PPID = parent of that process
+# PID = process od
+# PRI = priority
+# bash (borne-again sheel), sh (shell), csh (c shell), ksh (korn sheel), tcsh (tc shell), zsh (z shell)
+# Ctrl+D/exit will close the shell
+# man = manual
+# od = octal display => change content into octal number
