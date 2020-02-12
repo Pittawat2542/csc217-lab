@@ -1,0 +1,171 @@
+$ cd lab
+$ mkdir lab5
+$ cd lab5
+$ more friends
+Mai
+Milk
+Pooh
+Pho
+Earth
+Rama II
+Flukee
+Champ
+Gift
+Flukee
+# grep = search
+$ grep Rama friends
+Rama II
+$ grep Ramo friends
+$ grep -n Rama friends
+6:Rama II
+$ grep -n Gift friends
+9:Gift
+$ grep Flu friends
+$ grep o friends
+Pooh
+Pho
+$ grep a friends
+Mai
+Earth
+Rama II
+Champ
+$ grep -c a friends # show number of 
+4
+# wc = word count
+$ wc friends
+10 11 57 friends
+# no. of line, no. of word, no. of character
+# wc -c = byte count (count no. of character)
+$ wc -c friends
+57 friends
+# sort = sorting (asc)
+sort friends
+Champ
+Earth
+Flukee
+Flukee
+Gift
+Mai
+Milk
+Pho
+Pooh
+Rama II
+# head = show first n lines
+$ head -n 3 friends
+Mai
+Milk
+Pooh
+# tail = show last n lines
+$ tail -n 5 friends
+Rama II
+Flukee
+Champ
+Gift
+Flukee
+# see first 5 characters (count the new line)
+$ head -c 5 friends
+Mai
+M
+# | (pipe) = send the output of first program to be input of the second program
+$ head -n 7 friends | tail -n 3
+Earth
+Rama II
+Flukee
+# show between line 5 to 7
+$ grep a friends | head -n 1
+Mai
+$ grep a friends | tail -n 1
+Champ
+$ grep a friends | head -n 2 | tail -n 1
+Earth
+$ sort friends | head -n 4 | tail -n 1
+Flukee
+$ cat friends friends | sort
+Champ
+Champ
+Earth
+Earth
+Flukee
+Flukee
+Flukee
+Flukee
+Gift
+Gift
+Mai
+Mai
+Milk
+Milk
+Pho
+Pho
+Pooh
+Pooh
+Rama II
+Rama II
+$ cat friends ../lab1/friends | sort
+Aye Aye
+Boss
+Boy
+Cake: Greeny
+Champ
+Dome
+Donut
+Earth
+Erath
+Film
+Fluke
+Flukee
+Flukee
+Gift
+Mai
+Mai
+Michal
+Milk
+Pete
+Pho
+Pleum
+Pooh
+Prame
+Rama II
+Wicharn
+$ cat friends ../lab1/friends | grep -c Mai
+2
+$ cat friends ../lab1/friends | grep -c M*
+25
+$ cat friends ../lab1/friends | grep [M*]
+Mai
+Milk
+Michal
+Mai
+# search with regex require []
+$ cat friends ../lab1/friends | grep [*M,m*]
+Mai
+Milk
+Rama II
+Champ
+Pleum
+Michal
+Prame
+Film
+Dome
+Mai
+$ cat friends ../lab1/friends | grep [Mm] > mFriends
+$ more mFriends
+Mai
+Milk
+Rama II
+Champ
+Pleum
+Michal
+Prame
+Film
+Dome
+Mai
+$ cp ../lab2/thaiLaw .
+$ cp ../lab2/GDPR .
+$ cp ../lab2/algorithm .
+$ cat algorithm GDPR thaiLaw friends m-friends  | grep -c h
+17
+$ ll | grep 18
+-rw-r--r-- 1 os61220 users   57 Feb 12 18:30 friends
+$ sort -r friends # -r = reverse order (desc)
+$ echo "MSG" | write waraporn # send message to other user
