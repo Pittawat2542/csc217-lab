@@ -169,3 +169,4 @@ $ ll | grep 18
 -rw-r--r-- 1 os61220 users   57 Feb 12 18:30 friends
 $ sort -r friends # -r = reverse order (desc)
 $ echo "MSG" | write waraporn # send message to other user
+$ write waraporn # start sending message

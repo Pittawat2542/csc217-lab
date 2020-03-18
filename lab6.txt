@@ -1,0 +1,123 @@
+### Linux Script ###
+##### Write a program on linux shell (list of commands) #####
+$ cd lab
+$ mkdir lab6
+$ cd lab6
+---
+$ vi script1
+
+ls
+whoami
+
+$ chmod 700 script1
+$ ./script1
+$ vi script1
+
+ls -l
+whoami
+cal
+date
+
+$ ./script1
+$ chmod 700 ../lab3/nplums.out
+$ cp ../lab3/nplums.out .
+$ vi script1
+
+ls -l
+whoami
+cal
+./nplums.out
+date
+
+# we can have variable on shell script1
+$ vi add.script
+
+echo "Hello World"
+a = 10
+b = 20
+c = a + b
+echo c
+
+$ chmod 700 add.script
+$ ./add.script
+
+# + = string concatenation
+# $ = interpret value inside variable
+
+$ vi add.script
+
+echo "Hello World"
+a=10
+b=20
+
+c=$a+$b
+
+echo $a
+echo $c
+
+$ ./add.script
+$ vi add.script
+
+echo "Hello World"
+a=10
+b=20
+
+c=$(($a+$b))
+
+echo $a
+echo $c
+
+# Note: c=$a+$b will get 10+20 but c=$(($a+$b)) will get 30
+
+$ vi addUserValues.script
+
+# read = get value from user -> Like scanner in Java
+
+read a
+read b
+
+c=$(($a+$b))
+echo $c
+
+$ chmod 700 addUserValues.script
+$ vi addUserValues.script
+
+echo "Addition of your numbers"
+
+echo "What is your name?"
+read name
+
+echo "Give me two numbers"
+read a
+read b
+
+c=$(($a+$b))
+echo Hello $name. The addition of $a and $b is $c.
+
+$ vi add.script
+
+# $1, $2 -> use for read arguments of script without prompt
+
+$ vi multiplyArguments.script
+
+echo Multiplication from User Arguments
+
+echo $1
+echo $2
+
+answer=$(($1*$2))
+
+echo $answer
+
+$ chmod 700 multiplyArguments.script
+$ ./multiplyArguments.script 30 3
+$ vi multiplyArguments.script
+
+echo Multiplication from User Arguments
+
+echo $1
+echo $2
+
+answer=$(($1*$2))
+
+echo $1 x $2 = $answer
