@@ -1,0 +1,80 @@
+$ cd lab
+$ mkdir lab7
+$ cd lab7
+$ vi virusCheck.sh
+
+echo "Coronavirus basic question"
+
+echo "Have you been in China in the last 14 days? y/n"
+read china
+
+echo "Have you been in Italy or Iran or US in the last 14 days? type the country"
+read country
+
+riskScore=0
+
+if [ $country = 'Iran' -o $country = 'Italy' -o $country = 'US' ]
+then
+  echo "You are in really high risk"
+  riskScore=$(($riskScore+3))
+elif [ $china = 'y' ]
+then
+  echo "You are in high risk!"
+ riskScore=$(($riskScore+2))
+else
+  echo "You are in low risk. Please keep social distancing in mind!"
+fi
+
+echo "Let check the temperature!"
+read temperature
+
+if [ $temperature -ge 40 ]
+then
+  riskScore=$(($riskScore+3))
+elif [ $temperature -lt 37 ]
+then
+  echo "Risk score is not increased."
+else
+  riskScore=$(($riskScore+$temperature-37))
+fi
+
+echo "Do you have sore throat? y/n"
+read soreThroat
+
+echo "Do you cough a lot recently? y/n"
+read cough
+
+if [ $soreThroat = 'y' -a $cough = 'y' ]
+then
+  riskScore=$(($riskScore+2))
+elif [ $soreThroat = 'y' -o $cough = 'y' ]
+then
+  riskSCore=$(($riskScore+1))
+fi
+
+if [ $cough = 'y' ]
+then
+  riskScore=$(($riskScore+1))
+fi
+
+echo "How old are you?"
+read age
+
+riskScore=$(($riskScore+$age/30))
+
+echo Your risk score is $riskScore
+
+$ chmod 700 virusCheck.sh
+$ ./virusCheck.sh
+
+# -eq = equal (integer)
+# -ne = not equal (integer)
+# -np = not equal (integer)
+# = = equal (string)
+# != = not equal (string)
+# -o = or (logical)
+# -a = and (logical)
+# -gt = greater then (integer)
+# -ge = greater than or equal (integer)
+# -lt = less then (integer)
+# -le = less than equal (integer)
