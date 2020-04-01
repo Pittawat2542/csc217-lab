@@ -1,0 +1,165 @@
+$ cd lab
+$ mkdir lab8
+$ cd lab8
+$ vi count
+
+echo "Script to print 1 to 10"
+
+i=1
+while [ $i -le 10 ]
+do
+  echo $i
+  i=$(($i+1))
+done
+
+$ chmod 700 count
+$ ./count
+
+if [ $# -eq 1 ]
+then
+  starting=$1
+  ending=$(($1+10))
+elif [ $# -eq 0 ]
+then
+  starting=1
+  ending=10
+else
+  starting=$1
+  ending=$2
+fi
+
+echo "Script to print $starting to $ending using loop"
+
+i=$starting
+while [ $i -le $ending ]
+do
+  echo $i
+  i=$(($i+1))
+done
+
+$ vi exponential
+
+if [ $# -eq 0 ]
+then
+  a=1
+  b=1
+elif [ $# -eq 1 ]
+then
+  a=$1
+  b=1
+else
+  a=$1
+  b=$2
+fi
+
+echo Exponential of $a power by $b
+
+n=1
+
+i=1
+
+while [ $i -le $b ]
+do
+  n=$((n*a))
+  i=$((i+1))
+done
+
+if [ $b -eq 0 ]
+then
+  echo $a ^ 0 = 1
+else
+  echo $a ^ $b = $n
+fi
+
+$ chmod 700 exponential
+$ ./exponential 1 2
+
+if [ $# -eq 0 ]
+then
+  a=1
+  b=1
+elif [ $# -eq 1 ]
+then
+  a=$1
+  b=1
+else
+  a=$1
+  b=$2
+fi
+
+echo Exponential of $a power by $b
+
+n=1
+
+i=1
+
+if [ $b -lt 0 ]
+then
+  while [ $i -le $((-1*$b)) ]
+  do
+    n=$((n*a))
+    i=$((i+1))
+  done
+  echo $a ^ $b = 1/$n
+else
+  while [ $i -le $b ]
+  do
+    n=$((n*a))
+    i=$((i+1))
+  done
+  if [ $b -eq 0 ]
+  then
+    if [ $a -eq 0 ]
+    then
+      echo Program cannot calculate 0^0
+    else
+      echo $a ^ 0 = 1
+    fi
+  else
+    echo $a ^ $b = $n
+  fi
+fi
+
+$ vi sum
+
+sum=0
+if [ $1 -gt $2 ]
+then
+  n=$2
+  m=$1
+else
+  n=$1
+  m=$2
+fi
+
+i=$n
+while [ $i -le $m ]
+do
+  sum=$((sum+i))
+  i=$((i+1))
+done
+
+echo Summation from $n to $m is $sum
+
+$ chmod 700 sum
+$ ./sum 10 20
+
+$ vi summation
+
+n=$#
+
+if [ $n -eq 0 ]
+then
+  echo You have no arguments
+else
+  i=1
+  sum=0
+  for val in "$@"
+  do
+    sum=$((sum+val))
+  done
+  echo Summation = $sum
+fi
+
+$ chmod 700 summation
+$ ./summation 10 20 30 40
