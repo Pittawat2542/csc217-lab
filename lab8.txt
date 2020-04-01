@@ -144,6 +144,7 @@ echo Summation from $n to $m is $sum
 $ chmod 700 sum
 $ ./sum 10 20
 
+# ${!i} = $1, $2 ...
 $ vi summation
 
 n=$#
