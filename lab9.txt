@@ -1,0 +1,76 @@
+$ cd lab
+$ mkdir lab9
+$ cd lab9
+
+"Read positive integers from user. Find the average. Read until the user give -1."
+$ vi average.sh
+
+n=0
+count=0
+read x
+while [ $x -ne -1 ]
+do
+  n=$((n+x))
+  count=$((count+1))
+  read x
+done
+
+echo $((n/count))
+
+$ vi sumInArray.sh
+
+# arr[index] = access value from array
+# ${arr[1]} = get value from array
+# ${#arr[*]} = length of array
+
+i=0
+sum=0
+while [ $i -lt 5 ]
+do
+  read a
+  arr[$i]=$a
+  sum=$(($sum+${arr[$i]}))
+  i=$((i+1))
+done
+
+echo $sum
+
+i=0
+while [ $i -lt ${#arr[*]} ]
+do
+  echo ${arr[$i]}
+  i=$((i+1))
+done
+
+$ vi selectionSort.sh
+
+arr=(40 100 23 52 49 100 6 33 29 88 92)
+echo ${arr[*]}
+
+#for ((i=0; i<${#arr[*]}; i++))
+#do
+#  for ((j=0; j<${arr[*]}-i-1; j++))
+#    do
+#    done
+#done
+
+i=0
+while [ $i -lt ${#arr[*]} ]
+do
+  j=$((i+1))
+  smallestIndex=$i
+  while [ $j -lt ${#arr[*]} ]
+  do
+    if [ ${arr[$j]} -lt ${arr[$smallestIndex]} ]
+    then
+      smallestIndex=$j
+    fi
+    j=$((j+1))
+  done
+  temp=${arr[$i]}
+  arr[$i]=${arr[$smallestIndex]}
+  arr[$smallestIndex]=$temp
+  i=$((i+1))
+done
+
+echo ${arr[*]}
