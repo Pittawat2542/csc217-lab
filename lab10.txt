@@ -179,12 +179,18 @@ echo $count files
 
 $ vi cpConfirm
 
+if [ $# -ne 2 ]
+then
+  echo "cpConfirm: Require 2 arguments 'cpConfirm fromFile toFile'"
+  exit 1
+fi
+
 file1=$1
 file2=$2
 
 if [ -f "$file2" ]
 then
-  echo "File $file2 already exists. Do you want to replace? (Y/N)"
+  echo "cpConfirm: File $file2 already exists. Do you want to replace? (Y/N)"
   read confirm
   if [ $confirm == "Y" ]
   then
