@@ -1,0 +1,199 @@
+$ cd lab
+$ mkdir lab10
+$ cd lab10
+$ cat > friends
+
+Aye Aye
+Boy
+Mai
+^C
+
+$ cat > courses
+
+Java
+Networking
+SA
+OS
+UX/UI
+^C
+
+$ cat > skills
+
+Programming
+Team
+Leadership
+Data Mng.
+App Design
+^C
+
+$ ls -l
+
+-rw-r--r-- 1 os61220 users 28 Apr 22 18:04 courses
+-rw-r--r-- 1 os61220 users 16 Apr 22 18:04 friends
+-rw-r--r-- 1 os61220 users 49 Apr 22 18:05 skills
+
+$ vi checkFile
+
+echo Check File
+
+fileName='friends'
+if [ -f $fileName ]
+then
+  echo Found $fileName
+fi
+
+$ chmod 700 checkFile
+$ ./checkFile
+
+Check File
+Found friends
+
+$ vi checkFile
+
+echo Check File
+
+fileName='friend'
+if [ -f $fileName ]
+then
+  echo Found $fileName
+else
+  echo File not found.
+fi
+
+$ ./checkFile
+
+Check File
+File not found.
+
+$ vi checkFile
+
+echo Check File
+
+fileName='friends'
+if [ -f $fileName ]
+then
+  echo Found $fileName
+else
+  echo File not found.
+fi
+
+$ vi checkFile
+
+echo Check File
+
+fileName='friends'
+if [ -f $fileName ]
+then
+  echo Found $fileName
+  more $fileName
+else
+  echo File not found.
+fi
+
+$ vi checkFile
+
+echo Check File
+
+fileName='friends'
+if [ -f $fileName ]
+then
+  echo Found $fileName
+  more $fileName
+  date >> $fileName
+else
+  echo File not found.
+fi
+
+$ vi checkFile
+
+echo Check File
+
+fileName='friends'
+if [ -f $fileName ]
+then
+  echo Found $fileName
+  more $fileName
+  date >> $fileName
+  d=$(date)
+  newName="$fileName$d"
+  mv $fileName "$newName"
+else
+  echo File not found.
+fi
+
+# -f => check if file exists
+# -d => directory
+# -w => check if we have write permission
+# -r => check if we have read permission
+# -x => check if we have execute permission
+
+$ vi checkFile
+
+echo Check File
+
+fileName='friends'
+if [ -f $fileName ]
+then
+  if [ ! -w $fileName ]
+  then
+    chmod 700 $fileName
+  fi
+  echo Found $fileName
+  more $fileName
+  date >> $fileName
+  d=$(date)
+  newName="$fileName$d"
+  mv $fileName "$newName"
+  chmod 400 "$newName"
+else
+  echo File not found.
+fi
+
+$ vi countFiles
+
+echo Count the number of files
+
+count=0
+for name in *
+do
+  count=$((count+1))
+done
+
+echo $count
+
+$ chmod 700 countFiles
+$ ./countFiles
+
+echo Count the number of files
+
+count=0
+for name in *
+do
+  if [ ! -d "$name" ]
+  then
+    count=$((count+1))
+  fi
+done
+
+echo $count files
+
+$ vi cpConfirm
+
+file1=$1
+file2=$2
+
+if [ -f "$file2" ]
+then
+  echo "File $file2 already exists. Do you want to replace? (Y/N)"
+  read confirm
+  if [ $confirm == "Y" ]
+  then
+    cp "$file1" "$file2"
+  else
+    echo "Aborting..."
+  fi
+else
+  cp "$file1" "$file2"
+fi
+
+$ chmod 700 ./cpConfirm
