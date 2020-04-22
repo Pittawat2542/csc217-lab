@@ -197,9 +197,12 @@ then
     cp "$file1" "$file2"
   else
     echo "Aborting..."
+    exit 0
   fi
 else
   cp "$file1" "$file2"
 fi
+
+echo "$file1 is successfully copied to $file2"
 
 $ chmod 700 ./cpConfirm
